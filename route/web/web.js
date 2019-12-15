@@ -1,20 +1,22 @@
 var express = require("express");
 var router = express.Router();
 
+//call controllers
+var UsersController = require("../../app/controller/UsersController");
+var BaseController = require("../../app/controller/BaseController");
+var ProductController = require("../../app/controller/ProductCotroller");
+
 // define the home page route
-router.get("/", (req, res) => {
-  res.render("index");
-});
+router.get("/", BaseController.HomePage);
+
+router.get("/users", UsersController.AddUsers);
+
+router.post("/addProduct", ProductController.AddProduct);
 
 //404 routes
-router.use((req, res, next) => {
-  res.status(404).render("404");
-});
+router.use(BaseController.PageNotFound);
 
 //500 routes
-router.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).send("Something broke!");
-});
+router.use(BaseController.BadRequest);
 
 module.exports = router;
