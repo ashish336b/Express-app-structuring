@@ -9,9 +9,8 @@ app.set("views", "views");
 //port to listen
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
-  console.log(`server started on port ${port}`);
+  console.log(`server started on : http://localhost:${port}`);
 });
-
 //auto include global middleware like laravel kernel.php
 var middleware = require("./app/kernel");
 middleware.forEach(element => {
@@ -19,3 +18,5 @@ middleware.forEach(element => {
 });
 
 app.use(Routes);
+
+//connect to database
