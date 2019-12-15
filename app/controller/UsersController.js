@@ -2,10 +2,8 @@
 const UsersModel = require("../model/Users");
 
 exports.AddUsers = (req, res, next) => {
-  const Users = new UsersModel({ f_name: "Abhishek" });
+  const Users = new UsersModel({ f_name: "Hari", l_name: "Bhandari" });
   Users.save().then(result => {
-    console.log(result);
-    console.log("created");
+    res.send(result);
   });
-  res.send("ok");
 };

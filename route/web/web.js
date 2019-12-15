@@ -9,7 +9,7 @@ var ProductController = require("../../app/controller/ProductCotroller");
 // define the home page route
 router.get("/", BaseController.HomePage);
 
-router.get("/users", UsersController.AddUsers);
+router.post("/users", UsersController.AddUsers);
 
 router.post("/addProduct", ProductController.AddProduct);
 
