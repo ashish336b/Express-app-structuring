@@ -1,7 +1,6 @@
 require('dotenv').config();
 const express = require("express");
 const app = express();
-
 //define base url of application
 app.locals.baseUrl = 'http://localhost:3000';
 //use public folder as static
@@ -12,7 +11,8 @@ app.use(express.static(__dirname + '/public'));
 const port = process.env.PORT || 3000;
 
 //Routes included File
-app.use("/", require("./route/web/webRouter"));
+app.use('/components', require('./route/web/ComponentsRouter'));
+app.use(require("./route/web/webRouter"));
 
 
 //set the view templates engines
@@ -29,7 +29,7 @@ middleware.forEach(element => {
 const mongoose = require("mongoose");
 mongoose
     .connect(
-        "mongodb+srv://nodejs:root@nodejs-peasn.mongodb.net/"+process.env.DB_NAME+"?retryWrites=true&w=majority",
+        "mongodb+srv://nodejs:root@nodejs-peasn.mongodb.net/" + process.env.DB_NAME + "?retryWrites=true&w=majority",
         {useNewUrlParser: true, useUnifiedTopology: true}
     )
     .then(res => {
