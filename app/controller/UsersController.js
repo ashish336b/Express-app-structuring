@@ -1,5 +1,5 @@
 //Import All Model
-const UsersModel = require("../model/Users");
+const UsersModel = require("../model/UsersModel");
 
 exports.AddUsers = (req, res, next) => {
   const Users = new UsersModel({ f_name: "Hari", l_name: "Bhandari" });
