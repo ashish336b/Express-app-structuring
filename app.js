@@ -29,7 +29,7 @@ middleware.forEach(element => {
 const mongoose = require("mongoose");
 mongoose
     .connect(
-        "mongodb+srv://nodejs:root@nodejs-peasn.mongodb.net/nodejs?retryWrites=true&w=majority",
+        "mongodb+srv://nodejs:root@nodejs-peasn.mongodb.net/"+process.env.DB_NAME+"?retryWrites=true&w=majority",
         {useNewUrlParser: true, useUnifiedTopology: true}
     )
     .then(res => {
