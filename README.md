@@ -1,2 +1,2 @@
 # expressrepo
-This is just structuring of express project
+Starting point for express application
